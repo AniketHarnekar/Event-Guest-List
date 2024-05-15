@@ -1,0 +1,52 @@
+<div class="userListTitle">
+    <b>User Information</b>
+</div>
+<div class="userTable">
+    <table class="table table-hover">
+        <thead >
+            <tr class="table-success ">
+                <th class="heading-text">
+                    User Id
+                </th>
+                <th class="heading-text">
+                    FirstName
+                </th>
+                <th class="heading-text">
+                    LastName
+                </th>
+                <th class="heading-text">
+                    Email
+                </th>
+                <th class="heading-text">
+                    Full Address
+                </th>
+                <th class="heading-text action-align">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>
+                    {{user.id}}
+                </td>
+                <td>
+                    {{user.firstname}}
+                </td>
+                <td>
+                    {{user.lastname}}
+                </td>
+                <td>
+                    {{user.email}}
+                </td>
+                <td>
+                   {{user.address.street}}, {{user.address.city}}, {{user.address.zipcode}} 
+                </td>
+                <td class="action-align">
+                    <button class="btn btn-primary" (click)="selectUser(user)">Edit</button>&nbsp;
+                    <button class="btn btn-danger " (click)="deleteUser(user.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

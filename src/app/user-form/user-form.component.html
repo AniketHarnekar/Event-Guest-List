@@ -1,0 +1,59 @@
+
+
+<form class="userDetailsForm" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="form-group mb-2 col-md-6">
+      <label class="sub-title field-required">Firstname</label>
+      <input type="text" formControlName="firstname"  class="form-control" required>
+      <div *ngIf="userForm.get('firstname')?.touched && userForm.get('firstname')?.invalid" class="text-danger">
+         <div *ngIf="userForm.get('firstname')?.errors?.['required']">Firstname is Required</div>
+      </div>
+    </div>
+    <div class="form-group mb-2 col-md-6">
+      <label class="sub-title field-required">Lastname</label>
+      <input type="text" formControlName="lastname" class="form-control">
+      <div *ngIf="userForm.get('lastname')?.touched && userForm.get('lastname')?.invalid" class="text-danger">
+        <div *ngIf="userForm.get('lastname')?.errors?.['required']">Lastname is Required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group mb-2">
+    <label class="sub-title field-required">Email</label>
+    <input type="text" formControlName="email" class="form-control">
+    <div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.invalid" class="text-danger">
+      <div *ngIf="userForm.get('email')?.errors?.['required']">Email is Required</div>
+      <div *ngIf="userForm.get('email')?.errors?.['pattern']">Invalid Email Format</div>
+    </div>
+  </div>
+  <div formGroupName="address" class="address">
+      <label class="sub-title">Address</label>
+      <div class="form-group mb-2 street">
+        <label class="sub-title-address-part field-required">Street</label>
+        <input type="text" formControlName="street" class="form-control">
+        <div *ngIf="userForm.get('address.street')?.touched && userForm.get('address.street')?.invalid" class="text-danger">
+          <div *ngIf="userForm.get('address.street')?.errors?.['required']">Street is Required</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group mb-2 col-md-6">
+          <label class="sub-title-address-part field-required">City</label>
+          <input type="text" formControlName="city" class="form-control">
+          <div *ngIf="userForm.get('address.city')?.touched && userForm.get('address.city')?.invalid" class="text-danger">
+            <div *ngIf="userForm.get('address.city')?.errors?.['required']">City is Required</div>
+          </div>
+        </div>
+        <div class="form-group mb-2 col-md-6">
+          <label class="sub-title-address-part field-required">ZipCode</label>
+          <input type="text" formControlName="zipcode" class="form-control">
+          <div *ngIf="userForm.get('address.zipcode')?.touched && userForm.get('address.zipcode')?.invalid" class="text-danger">
+            <div *ngIf="userForm.get('address.zipcode')?.errors?.['required']">ZipCode is Required</div>
+          </div>
+        </div>
+      </div>
+  </div>    
+  <div class="submitButton">
+    <button type="submit" class="btn btn-success mb-2" [disabled]="userForm.invalid">Submit</button>
+  </div>
+</form>
+
+<app-user-list></app-user-list>

@@ -1,0 +1,47 @@
+
+.userDetailsForm{
+    width: 40%;
+    display:d-flex;
+    margin-left: 470px;
+}
+
+.street{
+    margin-top: 6px;
+}
+
+.address{
+    margin-top: 16px;
+}
+
+.submitButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 9px;
+    width: 100%; 
+}
+
+.submitButton button {
+    width: 120px;
+}
+
+.field-required:after {
+    content: " *";
+    color: red;
+}
+
+.sub-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 30px;
+    letter-spacing: 0.1px;
+    color: #08122A;
+}
+
+.sub-title-address-part{
+    font-style: normal;
+    line-height: 30px;
+    letter-spacing: 0.1px;
+    color: #08122A;
+}
